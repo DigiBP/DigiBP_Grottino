@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="Definitions_0u11hjp" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.7.0">
+  <decision id="decideOnDiscount" name="Check Discount">
+    <decisionTable id="decisionTable_1">
+      <input id="InputClause_09j1kai" label="Customer Since">
+        <inputExpression id="LiteralExpression_1n5kymz" typeRef="long">
+          <text>customerSince</text>
+        </inputExpression>
+      </input>
+      <input id="input_1" label="Monthly Spending">
+        <inputExpression id="inputExpression_1" typeRef="long">
+          <text>monthlySpending</text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Discount" name="discount" typeRef="long" />
+      <rule id="DecisionRule_0hk9nzi">
+        <description>Discount</description>
+        <inputEntry id="UnaryTests_0os724v">
+          <text>&lt;= 1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fed45h">
+          <text>&lt;= 1000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_12583fa">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1vzcel3">
+        <description>Discount</description>
+        <inputEntry id="UnaryTests_02gysyc">
+          <text>[1.1..5]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dh43ny">
+          <text>&lt;= 1000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_065y3ee">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0h6byms">
+        <description>Discount</description>
+        <inputEntry id="UnaryTests_0nd0iuk">
+          <text>&gt;= 5.1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qvhvj9">
+          <text>&lt;= 1000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0dzdhdw">
+          <text>4</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ycy6vp">
+        <description>Discount</description>
+        <inputEntry id="UnaryTests_0w8k34z">
+          <text>&lt;= 1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1adex5u">
+          <text>[1001..10000]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0yffs4n">
+          <text>6</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1lhjj73">
+        <description>Discount</description>
+        <inputEntry id="UnaryTests_06okr4f">
+          <text>[1.1..5]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lsouov">
+          <text>[1001..10000]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1c4wcof">
+          <text>8</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1lmdrn1">
+        <description>Discount</description>
+        <inputEntry id="UnaryTests_05r55kr">
+          <text>&gt;= 5.1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dwb2tl">
+          <text>[1001..10000]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qcavcl">
+          <text>10</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0bjcj7v">
+        <description>Discount</description>
+        <inputEntry id="UnaryTests_0nybby8">
+          <text>[1.1..5]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0juick7">
+          <text>&gt;= 10001</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0z36nu3">
+          <text>11</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1df10us">
+        <description>Discount</description>
+        <inputEntry id="UnaryTests_1rs1iey">
+          <text>&lt;= 1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sx02vx">
+          <text>&gt;= 10001</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1heiqr9">
+          <text>12</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_09xtvze">
+        <description>Discount</description>
+        <inputEntry id="UnaryTests_0cdp4ft">
+          <text>&gt;= 5.1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05yt5sg">
+          <text>&gt;= 10001</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1mgkl77">
+          <text>15</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

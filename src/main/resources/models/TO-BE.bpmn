@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1sk04mx" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.7.0">
+  <bpmn:collaboration id="ReceiveOrderProcess">
+    <bpmn:participant id="Participant_04j8z66" name="Receive Order Process" processRef="receiveOrderProcess" />
+    <bpmn:participant id="Participant_10xuxu6" name="Bot" processRef="Process_10s2bn9" />
+    <bpmn:messageFlow id="MessageFlow_1hnp1m0" sourceRef="Participant_10xuxu6" targetRef="StartEvent" />
+  </bpmn:collaboration>
+  <bpmn:process id="receiveOrderProcess" isExecutable="true">
+    <bpmn:laneSet id="LaneSet_1ib9jvi">
+      <bpmn:lane id="Lane_0x0s3fo" name="Sales">
+        <bpmn:flowNodeRef>Activity_1yanclz</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>StartEvent</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0pbiggk</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_1poyabp</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0q3h6zz</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:userTask id="Activity_1yanclz" name="Enter order details">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="customerSince" label="Customer Since" type="long" defaultValue="5" />
+          <camunda:formField id="monthlySpending" label="Monthly Spending" type="long" defaultValue="1000" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_09d0671</bpmn:incoming>
+      <bpmn:outgoing>Flow_1et44r0</bpmn:outgoing>
+      <bpmn:property id="Property_0emr266" name="__targetRef_placeholder" />
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_1lvr7qe" sourceRef="Activity_0pbiggk" targetRef="Event_1poyabp" />
+    <bpmn:sequenceFlow id="Flow_09d0671" sourceRef="StartEvent" targetRef="Activity_1yanclz" />
+    <bpmn:startEvent id="StartEvent" name="Receive order">
+      <bpmn:outgoing>Flow_09d0671</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_1xrd604" messageRef="Message_1m5ymzq" />
+    </bpmn:startEvent>
+    <bpmn:userTask id="Activity_0pbiggk" name="View discount">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="discount" label="Discount" type="long" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0w8gdx4</bpmn:incoming>
+      <bpmn:outgoing>Flow_1lvr7qe</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="Event_1poyabp">
+      <bpmn:incoming>Flow_1lvr7qe</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:businessRuleTask id="Activity_0q3h6zz" name="Decide on customer type" camunda:resultVariable="discount" camunda:decisionRef="decideOnDiscount" camunda:mapDecisionResult="singleEntry">
+      <bpmn:incoming>Flow_1et44r0</bpmn:incoming>
+      <bpmn:outgoing>Flow_0w8gdx4</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:sequenceFlow id="Flow_1et44r0" sourceRef="Activity_1yanclz" targetRef="Activity_0q3h6zz" />
+    <bpmn:sequenceFlow id="Flow_0w8gdx4" sourceRef="Activity_0q3h6zz" targetRef="Activity_0pbiggk" />
+  </bpmn:process>
+  <bpmn:message id="Message_1m5ymzq" name="OrderReceived" />
+  <bpmn:process id="Process_10s2bn9" isExecutable="false" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="ReceiveOrderProcess">
+      <bpmndi:BPMNShape id="Participant_04j8z66_di" bpmnElement="Participant_04j8z66" isHorizontal="true">
+        <dc:Bounds x="130" y="159" width="910" height="251" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_0x0s3fo_di" bpmnElement="Lane_0x0s3fo" isHorizontal="true">
+        <dc:Bounds x="160" y="159" width="880" height="251" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_09d0671_di" bpmnElement="Flow_09d0671">
+        <di:waypoint x="248" y="300" />
+        <di:waypoint x="300" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_1poyabp_di" bpmnElement="Event_1poyabp">
+        <dc:Bounds x="962" y="282" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="776" y="458" width="67" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0q3h6zz_di" bpmnElement="Activity_0q3h6zz">
+        <dc:Bounds x="530" y="260" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ho8lk3_di" bpmnElement="Activity_1yanclz">
+        <dc:Bounds x="300" y="260" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1lvr7qe_di" bpmnElement="Flow_1lvr7qe">
+        <di:waypoint x="890" y="300" />
+        <di:waypoint x="962" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Activity_1yno93z_di" bpmnElement="Activity_0pbiggk">
+        <dc:Bounds x="790" y="260" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_10xuxu6_di" bpmnElement="Participant_10xuxu6" isHorizontal="true">
+        <dc:Bounds x="130" y="80" width="910" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="MessageFlow_1hnp1m0_di" bpmnElement="MessageFlow_1hnp1m0">
+        <di:waypoint x="230" y="140" />
+        <di:waypoint x="230" y="282" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_0tcgwfv_di" bpmnElement="StartEvent">
+        <dc:Bounds x="212" y="282" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="195" y="325" width="70" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1et44r0_di" bpmnElement="Flow_1et44r0">
+        <di:waypoint x="400" y="300" />
+        <di:waypoint x="530" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0w8gdx4_di" bpmnElement="Flow_0w8gdx4">
+        <di:waypoint x="630" y="300" />
+        <di:waypoint x="790" y="300" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
