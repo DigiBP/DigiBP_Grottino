@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="Definitions_1pxvqj4" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.7.0">
+  <decision id="decideOnShippingPartner" name="Check Shipping Partner">
+    <decisionTable id="decisionTable_1">
+      <input id="input_1" label="Number of Boxes">
+        <inputExpression id="inputExpression_1" typeRef="long">
+          <text>numberOfBoxes</text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Shipping Partner" name="shippingPartner" typeRef="string" />
+      <rule id="DecisionRule_14l2s4a">
+        <description>DPD</description>
+        <inputEntry id="UnaryTests_13uo6db">
+          <text>&gt;= 100</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1totko3">
+          <text>"UPS"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0h50rik">
+        <description>Post</description>
+        <inputEntry id="UnaryTests_15oa3uw">
+          <text>[11..99]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07wuihx">
+          <text>"DPD"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ov3wy7">
+        <description>UPS</description>
+        <inputEntry id="UnaryTests_0xpkr0p">
+          <text>[0..10]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13yicds">
+          <text>"Post"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
