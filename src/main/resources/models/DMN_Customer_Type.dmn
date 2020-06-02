@@ -14,7 +14,7 @@
       </input>
       <output id="output_1" label="Discount" name="discount" typeRef="long" />
       <rule id="DecisionRule_0hk9nzi">
-        <description>Discount</description>
+        <description>0% Discount</description>
         <inputEntry id="UnaryTests_0os724v">
           <text>&lt;= 1</text>
         </inputEntry>
@@ -26,7 +26,7 @@
         </outputEntry>
       </rule>
       <rule id="DecisionRule_1vzcel3">
-        <description>Discount</description>
+        <description>2% Discount</description>
         <inputEntry id="UnaryTests_02gysyc">
           <text>[1.1..5]</text>
         </inputEntry>
@@ -38,7 +38,7 @@
         </outputEntry>
       </rule>
       <rule id="DecisionRule_0h6byms">
-        <description>Discount</description>
+        <description>4% Discount</description>
         <inputEntry id="UnaryTests_0nd0iuk">
           <text>&gt;= 5.1</text>
         </inputEntry>
@@ -50,7 +50,7 @@
         </outputEntry>
       </rule>
       <rule id="DecisionRule_0ycy6vp">
-        <description>Discount</description>
+        <description>6% Discount</description>
         <inputEntry id="UnaryTests_0w8k34z">
           <text>&lt;= 1</text>
         </inputEntry>
@@ -62,7 +62,7 @@
         </outputEntry>
       </rule>
       <rule id="DecisionRule_1lhjj73">
-        <description>Discount</description>
+        <description>8% Discount</description>
         <inputEntry id="UnaryTests_06okr4f">
           <text>[1.1..5]</text>
         </inputEntry>
@@ -74,7 +74,7 @@
         </outputEntry>
       </rule>
       <rule id="DecisionRule_1lmdrn1">
-        <description>Discount</description>
+        <description>10% Discount</description>
         <inputEntry id="UnaryTests_05r55kr">
           <text>&gt;= 5.1</text>
         </inputEntry>
@@ -86,7 +86,7 @@
         </outputEntry>
       </rule>
       <rule id="DecisionRule_0bjcj7v">
-        <description>Discount</description>
+        <description>11% Discount</description>
         <inputEntry id="UnaryTests_0nybby8">
           <text>[1.1..5]</text>
         </inputEntry>
@@ -98,7 +98,7 @@
         </outputEntry>
       </rule>
       <rule id="DecisionRule_1df10us">
-        <description>Discount</description>
+        <description>12% Discount</description>
         <inputEntry id="UnaryTests_1rs1iey">
           <text>&lt;= 1</text>
         </inputEntry>
@@ -110,7 +110,7 @@
         </outputEntry>
       </rule>
       <rule id="DecisionRule_09xtvze">
-        <description>Discount</description>
+        <description>15% Discount</description>
         <inputEntry id="UnaryTests_0cdp4ft">
           <text>&gt;= 5.1</text>
         </inputEntry>

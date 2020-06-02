@@ -7,32 +7,32 @@
           <text>numberOfBoxes</text>
         </inputExpression>
       </input>
-      <output id="output_1" label="Shipping Partner" name="shippingPartner" typeRef="string" />
+      <output id="output_1" label="Shipping Partner" name="shippingPartner" typeRef="long" />
       <rule id="DecisionRule_14l2s4a">
-        <description>DPD</description>
+        <description>UPS</description>
         <inputEntry id="UnaryTests_13uo6db">
           <text>&gt;= 100</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_1totko3">
-          <text>"UPS"</text>
+          <text>3</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_0h50rik">
-        <description>Post</description>
+        <description>DPD</description>
         <inputEntry id="UnaryTests_15oa3uw">
           <text>[11..99]</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_07wuihx">
-          <text>"DPD"</text>
+          <text>1</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_1ov3wy7">
-        <description>UPS</description>
+        <description>Die Post</description>
         <inputEntry id="UnaryTests_0xpkr0p">
           <text>[0..10]</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_13yicds">
-          <text>"Post"</text>
+          <text>2</text>
         </outputEntry>
       </rule>
     </decisionTable>
